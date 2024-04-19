@@ -1,0 +1,38 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos padrão para a imagem */
+.imgLogo {
+  width: 300px;
+  height: 300px;
+  /* Outras propriedades de estilo para a imagem, se necessário */
+}
+
+/* Media query para telas menores que 768px (dispositivos móveis) */
+@media (max-width: 768px) {
+  .imgLogo {
+      display: none; /* Esconde a imagem */
+  }
+}
+

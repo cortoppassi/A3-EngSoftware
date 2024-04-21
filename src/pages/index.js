@@ -3,7 +3,7 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
-
+import { Button, CardActionArea, CardActions } from '@mui/material';
 import Heading from "@theme/Heading";
 import styles from "./index.module.css";
 
@@ -23,16 +23,18 @@ function HomepageHeader() {
             Plataforma de software para divulgar conhecimento e experiências em
             tecnologia.
           </p>
-          <div className={styles.buttons}>
-            <Link style={{ display: "flex", alignItems: "center", gap: "10px" }}
-              className="button button--secondary button--lg"
+          <div >
+            
+            <Button className={styles.buttons}
               href="https://discord.gg/yVNJ8ng5Td"
-              target="_blank" // Para abrir o link em uma nova aba ou janela.
-              rel="noopener noreferrer" // Para segurança e boas práticas de SEO.
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="contained"
+              style={{backgroundColor: "#3d54bd", color: "white", borderRadius: "20px"}}
             >
               Junte-se à comunidade
               <img src="img/discord.png" alt="Discord" width="30" height="30" />
-            </Link>
+            </Button>
           </div>
         </div>
       </div>

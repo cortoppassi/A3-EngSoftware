@@ -17,7 +17,7 @@ const cardStyle = {
   backgroundColor: 'aliceblue',
   border: 'solid 1px gray',
   boxShadow: '5px 5px 10px',
-  borderRadius: '14px 0 14px 0',
+  borderRadius: '12px',
 };
 
 const cardMediaStyle = {
@@ -342,7 +342,7 @@ function Feature({ Svg, title, description, link }) {
               </CardContent>
           </CardActionArea>
           <CardActions style={cardActionsStyle}>
-              <Button variant="contained" size="medium" color="info" href={link} style={{borderRadius: "14px 0 14px 0", boxShadow: "5px 5px 10px", color: "whitesmoke"}}>
+              <Button variant="contained" size="small" color="info" href={link} style={{backgroundColor: "#3d54bd", borderRadius: "12px", boxShadow: "5px 5px 10px", color: "whitesmoke"}}>
                   Documentação
               </Button>
           </CardActions>

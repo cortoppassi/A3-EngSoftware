@@ -4,6 +4,7 @@
  */
 
 .heroBanner {
+  background: linear-gradient(to bottom, #3d54bd, white);
   padding: 4rem 0;
   text-align: center;
   position: relative;
@@ -17,9 +18,19 @@
 }
 
 .buttons {
+  background-color: #3d54bd;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-Radius: "20px";
+  padding: "5px";
+  border: "1px solid blue";
+  gap: "10px";
+}
+
+.buttons :hover {
+ color: black;
 }
 
 /* Estilos padrão para a imagem */

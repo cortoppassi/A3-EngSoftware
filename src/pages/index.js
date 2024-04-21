@@ -12,7 +12,7 @@ function HomepageHeader() {
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
-        <img className={styles.imgLogo} src="img/pngegg.png" alt="logo"/>
+        <img className={styles.imgLogo} src="img/soft.png" alt="logo" style={{width: "500px", height: "auto"}}/>
       </div>
       <div className="container">
         <div className="container">

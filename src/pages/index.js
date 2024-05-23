@@ -6,6 +6,7 @@ import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import Heading from "@theme/Heading";
 import styles from "./index.module.css";
+import ChatBot from '../components/chatbot'
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -37,6 +38,7 @@ function HomepageHeader() {
             </Button>
           </div>
         </div>
+        <ChatBot/>
       </div>
     </header>
   );

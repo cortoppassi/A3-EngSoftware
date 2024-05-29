@@ -68,10 +68,10 @@ const inputStyle = {
 
 const options = [
   { id: 1, label: "Quem sou eu?" },
-  { id: 2, label: "Projetos" },
-  { id: 3, label: "Habilidades" },
-  { id: 4, label: "Contato" },
-  { id: 5, label: "Currículo" },
+  { id: 2, label: "Metodologia de Desenvolvimento" },
+  { id: 3, label: "Artigos e Tutoriais" },
+  { id: 4, label: "Contato e Suporte" },
+  { id: 5, label: "Documentação do Projeto" },
 ];
 
 export default function ChatbotModal() {

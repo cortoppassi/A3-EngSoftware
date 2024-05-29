@@ -293,7 +293,7 @@ export default function ChatbotModal() {
         break;
       case 5:
         window.open(
-          "https://raw.githubusercontent.com/cortoppassi/Portifolio/main/curriculoJonathan.pdf",
+          "https://github.com/cortoppassi/A---3-Felipe/raw/main/A3%20Felipe%20Segunda%20Entrega.docx",
           "_blank"
         );
         toggleMenuVisibility();

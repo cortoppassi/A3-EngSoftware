@@ -78,12 +78,12 @@ const config = {
             position: 'left',
             label: 'Documentação',
           },
-          // {to: '/blog', label: 'Blog', position: 'left'},
-         // {
-           // href: 'https://github.com/facebook/docusaurus',
-           // label: 'GitHub',
-          //  position: 'right',
-         // },
+           {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            href: 'https://github.com/cortoppassi/A---3-Felipe',
+            label: 'GitHub',
+            position: 'right',
+          },
         ],
       },
       footer: {
@@ -124,7 +124,7 @@ const config = {
               // },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/cortoppassi/A---3-Felipe',
               },
             ],
           },

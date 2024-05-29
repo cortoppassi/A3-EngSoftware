@@ -256,12 +256,7 @@ export default function ChatbotModal() {
       case 1:
         setRespostaOption(
           <>
-            Estudante do 3° Semestre em Análises e Desenvolvimento de Sistemas - UNIFACS<br /><br />
-            - Fundamentos de JavaScript Funcional | JavaScript Funcional e Reativo<br />
-            - 701 - Linux Fundamentals | 702 - Linux Essentials<br />
-            - 538 - Containers Fundamentals<br />
-            - 530 - Cloud Fundamentals<br />
-            - Cisco - Dispositivos de Rede e Configuração<br />
+             • Projetos Recentes: Veja nossos projetos mais recentes e descubra o que estamos construindo atualmente.
           </>
           
         );
@@ -270,10 +265,7 @@ export default function ChatbotModal() {
       case 2:
           setRespostaOption(
             <>
-              • Assistente-OpenAI: Desenvolvimento de assistentes capazes de chamar modelos e utilizar ferramentas para a execução de tarefas.<br />
-              • Stable Diffusion: Participação ativa em um projeto que combinou os conceitos de Midjourney e Stable Diffusion no treinamento de modelos de inteligência artificial.<br />
-              • Rede-Neural: Utilização de biblioteca de redes neurais para simular aprendizado de máquina.<br />
-              • ElectronChat-OpenAI: Aplicação que integra a tecnologia Electron com um modelo de chat GPT, proporcionando interações inteligentes com os usuários.<br />  
+              • Metodologia de Desenvolvimento: Conheça nossa abordagem para o desenvolvimento de software e como entregamos produtos de qualidade.
             </>
           );
           toggleMenuVisibility();
@@ -284,10 +276,7 @@ export default function ChatbotModal() {
       case 3:
         setRespostaOption(
           <>
-            • Desenvolvimento de chatbots e assistentes virtuais.<br />
-            • Gerenciamento de instâncias (EC2) na nuvem.<br />
-            • Automação de navegação por meio do protocolo DevTools.<br />
-            • Desenvolvimento de projetos web, com foco na integração de APIs, otimização de desempenho e implementação de funcionalidades.<br />
+            • Ferramentas Utilizadas: Descubra as tecnologias e ferramentas que empregamos para criar soluções inovadoras.
           </>
           
         );

@@ -2,22 +2,29 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Introdução
 
-Let's discover **Docusaurus in less than 5 minutes**.
+**Plataforma de Gerenciamento e Apresentação de Principais Ferramentas de Engenharia de Software**.
 
-## Getting Started
+## Começando
 
-Get started by **creating a new site**.
+**Comece acessando o site.**  **[codehelper.dev](https://a-3-felipe.vercel.app/)**.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+### O que você precisará
 
-### What you'll need
+**1. Navegador Atualizado:**
+- Recomendamos o uso das versões mais recentes dos navegadores mais populares, como:
+  - Google Chrome
+  - Mozilla Firefox
+  - Microsoft Edge
+  - Safari
+- Certifique-se de que seu navegador está configurado para receber atualizações automáticas.
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+**2. Acesso à internet:**
+- Uma conexão estável à internet é essencial para garantir uma experiência sem interrupções.
+- Recomendamos uma conexão de banda larga com uma velocidade mínima de 10 Mbps para uso ideal da plataforma.
 
-## Generate a new site
+<!-- ## Generate a new site
 
 Generate a new Docusaurus site using the **classic template**.
 
@@ -44,4 +51,4 @@ The `cd` command changes the directory you're working with. In order to work wit
 
 The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes. -->

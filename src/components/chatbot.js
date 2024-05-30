@@ -85,25 +85,26 @@ const options = [
 ];
 
 export default function ChatbotModal() {
-  const handlePlay = () => {
-    const audioElement = new Audio(audioUrl);
-    audioElement.play();
-  };
-
   const [menuVisible, setMenuVisible] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
-  const handleMouseOver = (item) => {
-    setHoveredItem(item);
-  };
-
-  const handleMouseOut = () => {
-    setHoveredItem(null);
-  };
-
+  const [pergunta, setPergunta] = useState("");
+  const [messages, setMessages] = useState([]);
+  const [apiKey, setApiKey] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [audioUrl, setAudioUrl] = useState("");
   const [bootVisible, setBotVisible] = useState(true);
   const [open, setOpen] = useState(false);
   const textAreaRef = useRef(null);
+  const handleMouseOver = (item) => { setHoveredItem(item) };
+  const handleMouseOut = () => { setHoveredItem(null) };
+  const recognition = useRef(null);
 
+  const handlePlay = () => {
+    console.log('click')
+    const audioElement = new Audio(audioUrl);
+    audioElement.play();
+  };
+    
   const handleOpen = () => {
     setOpen(true);
     setBotVisible(false);
@@ -118,14 +119,6 @@ export default function ChatbotModal() {
     setBotVisible(true);
     setMessages([]);
   };
-
-  const [pergunta, setPergunta] = useState("");
-  const [messages, setMessages] = useState([]);
-  const [apiKey, setApiKey] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [audioUrl, setAudioUrl] = useState("");
-
-  const recognition = useRef(null);
 
   const startListening = () => {
     if (recognition.current) {
@@ -245,12 +238,38 @@ export default function ChatbotModal() {
           content: "Metodologia de Desenvolvimento: Conheça nossa abordagem para o desenvolvimento de software e como entregamos produtos de qualidade.",
         });
         break;
-      case 3:
-        addMessage({
-          role: "bot",
-          content: "Ferramentas Utilizadas: Descubra as tecnologias e ferramentas que empregamos para criar soluções inovadoras.",
-        });
-        break;
+        case 3:
+          addMessage({
+            role: "bot",
+            content: (
+              <>
+                Ferramentas Utilizadas: Descubra as tecnologias e ferramentas que empregamos para criar soluções inovadoras.
+                <br /><br />
+                Aqui estão alguns artigos e tutoriais relacionados:
+                <br /><br />
+                1. <a href="https://www.atlassian.com/git/tutorials/what-is-git" target="_blank">Introdução ao Git e GitHub</a> - Um guia completo sobre como usar Git e GitHub para controle de versão.
+                <br />
+                2. <a href="https://www.docker.com/101-tutorial" target="_blank">Docker para Iniciantes</a> - Um tutorial passo a passo para começar a usar Docker para containerização.
+                <br />
+                3. <a href="https://www.jenkins.io/doc/pipeline/tour/getting-started/" target="_blank">Guia de Jenkins para CI/CD</a> - Como configurar e utilizar Jenkins para integração e entrega contínuas.
+                <br />
+                4. <a href="https://www.selenium.dev/documentation/en/getting_started_with_webdriver/" target="_blank">Automatização de Testes com Selenium</a> - Aprenda a automatizar testes de interface de usuário com Selenium.
+                <br />
+                5. <a href="https://kubernetes.io/docs/tutorials/kubernetes-basics/" target="_blank">Introdução ao Kubernetes</a> - Um tutorial básico para começar a usar Kubernetes para orquestração de containers.
+                <br />
+                6. <a href="https://www.agilealliance.org/agile101/" target="_blank">Melhores Práticas de Desenvolvimento Ágil</a> - Um overview das práticas e princípios do desenvolvimento ágil.
+                <br />
+                7. <a href="https://prometheus.io/docs/introduction/overview/" target="_blank">Monitoramento com Prometheus e Grafana</a> - Como configurar Prometheus e Grafana para monitoramento e visualização de métricas.
+                <br />
+                8. <a href="https://learning.postman.com/docs/getting-started/introduction/" target="_blank">Integração de APIs com Postman</a> - Um guia para testar e documentar APIs usando Postman.
+                <br />
+                9. <a href="https://learn.hashicorp.com/collections/terraform/aws-get-started" target="_blank">Uso de Terraform para Infraestrutura como Código</a> - Um tutorial sobre como gerenciar sua infraestrutura usando Terraform.
+                <br />
+                10. <a href="https://scrumguides.org/scrum-guide.html" target="_blank">Scrum: Guia Completo</a> - Um guia detalhado sobre como implementar e utilizar Scrum para gestão de projetos.
+              </>
+            ),
+          });
+          break;
       case 4:
         const numeroWhatsapp = "71999214693";
         const mensagem = "Olá, gostaria de entrar em contato!";
@@ -387,6 +406,9 @@ export default function ChatbotModal() {
                 }}
               >
                 <h3>{message.content}</h3>
+                {/* <button onClick={handlePlay}>
+                  <CampaignIcon></CampaignIcon>
+                </button> */}
               </div>
             ))}
           </div>

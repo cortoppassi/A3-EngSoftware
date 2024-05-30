@@ -8,8 +8,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import MicIcon from "@mui/icons-material/Mic";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import MenuIcon from "@mui/icons-material/Menu";
-// import Image from "next/image";
-// require("dotenv").config();
+
 
 const chatBotStyle = {
   position: "fixed",
@@ -18,7 +17,7 @@ const chatBotStyle = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-   zIndex: 9999, 
+  zIndex: 9999,
 };
 
 const liStyle = {
@@ -35,13 +34,23 @@ const modalStyle = {
   position: "absolute",
   bottom: "10px",
   right: "25px",
-  padding: "4px",
+  padding: "8px",
   backgroundColor: "#343541",
-  borderRadius: "5px",
+  borderRadius: "8px",
   width: "90%",
-  height: "50%",
+  height: "60%",
   opacity: "0.9",
-  maxWidth: "400px", // Adicionado limite máximo de largura
+  maxWidth: "400px",
+};
+
+const scrollableDivWithScrollbar = {
+  height: "90%",
+  overflowY: "auto",
+  scrollbarWidth: "thin",
+  scrollbarColor: "#666 transparent",
+  WebkitOverflowScrolling: "touch",
+  WebkitTransform: "translateZ(0)",
+  msTransform: "translateZ(0)",
 };
 
 const imgStyle = {
@@ -54,12 +63,14 @@ const imgStyle = {
 
 const inputStyle = {
   display: "flex",
+  height: "10%",
   position: "absolute",
   bottom: "0",
   left: "0",
   right: "0",
   backgroundColor: "#222",
-  borderRadius: "5px",
+  borderRadius: "8px",
+  border: "solid 1px black",
   padding: "6px",
   overflow: "hidden",
   margin: "6px",
@@ -76,7 +87,6 @@ const options = [
 
 export default function ChatbotModal() {
   const handlePlay = () => {
-
     const audioElement = new Audio(audioUrl);
     audioElement.play();
   };
@@ -98,6 +108,11 @@ export default function ChatbotModal() {
   const handleOpen = () => {
     setOpen(true);
     setBotVisible(false);
+    setResposta(
+      <>
+        <h3>Olá! Como posso ajudar você hoje?</h3>
+      </>
+    );
     if (textAreaRef.current) {
       textAreaRef.current.focus();
     }
@@ -105,44 +120,17 @@ export default function ChatbotModal() {
   const handleClose = () => {
     setOpen(false);
     setBotVisible(true);
+    setResposta("");
   };
   const [pergunta, setPergunta] = useState("");
   const [resposta, setResposta] = useState("");
-  const [apiKey, setApiKey] = useState();
+  const [apiKey, setApiKey] = useState('');
   const [loading, setLoading] = useState(false);
   const [audioUrl, setAudioUrl] = useState("");
 
   const recognition = useRef(null);
 
-  useEffect(() => {
-    if (window.SpeechRecognition || window.webkitSpeechRecognition) {
-      recognition.current = new (window.SpeechRecognition ||
-        window.webkitSpeechRecognition)();
-      recognition.current.continuous = true;
-      recognition.current.lang = "pt-BR"; // Set the desired language
 
-      recognition.current.onresult = (event) => {
-        const text = event.results[event.results.length - 1][0].transcript;
-        setPergunta(text);
-      };
-
-      recognition.current.onend = () => {
-        // Recording has ended
-      };
-
-      recognition.current.onerror = (event) => {
-        console.error("Voice recognition error:", event.error);
-      };
-    } else {
-      console.error("Speech recognition is not supported in this browser.");
-    }
-
-    return () => {
-      if (recognition.current) {
-        recognition.current.stop();
-      }
-    };
-  }, []);
 
   const startListening = () => {
     if (recognition.current) {
@@ -160,10 +148,10 @@ export default function ChatbotModal() {
     e.preventDefault();
     setLoading(true);
 
-    setResposta("Olá! Como posso ajudar você hoje?");
+    const userPrompt = "O projeto busca criar uma plataforma que reúna as principais ferramentas de engenharia de software para apoiar os desenvolvedores em todas as etapas do ciclo de vida do desenvolvimento. Como posso ajudar você hoje?";
 
     if (!apiKey) {
-      setResposta("Necessário colocar a chave da API");
+      setResposta("Você não tem permissão");
       setLoading(false);
       return;
     }
@@ -175,8 +163,13 @@ export default function ChatbotModal() {
         {
           model: "gpt-3.5-turbo",
           messages: [
-            { role: "system", content: "Você é Jonathan, um estudante de Análise e Desenvolvimento de Sistemas apaixonado por transformar ideias em realidade através da programação. Durante minha jornada acadêmica, explorei diversos projetos, desde a criação de páginas web simples até o desenvolvimento de soluções avançadas em inteligência artificial, chatbots e automação de tarefas. Atualmente, estou dedicado a aprimorar minhas habilidades em tecnologias essenciais, como React e Node.js, para acompanhar as demandas dinâmicas do mercado. Minha paixão pela programação e meu desejo constante de aprendizado me impulsionam a buscar soluções inovadoras e eficazes, sempre com o objetivo de agregar valor à organização. Resido em Salvador-BA e tenho 26 anos. Estou ansioso para explorar novas oportunidades e contribuir para projetos que promovam impacto positivo. Seja na criação de experiências web envolventes ou no desenvolvimento de soluções avançadas de inteligência artificial, estou pronto para enfrentar desafios e elevar o potencial da tecnologia. Como posso ajudar você hoje?" },
-            { role: "user", content: pergunta },
+            {
+              role: "system",
+              content: userPrompt,
+            },
+            { role: "user",
+              content: pergunta
+            },
           ],
           temperature: 0.7,
           max_tokens: 100,
@@ -190,38 +183,31 @@ export default function ChatbotModal() {
       );
 
       const respostaDoChat = resposta.data.choices[0].message.content;
-      console.log("Resposta do Chat:", respostaDoChat);
+      // console.log("Resposta do Chat:", respostaDoChat);
       setResposta(respostaDoChat);
 
-      // Obtendo o áudio da resposta usando a API de Text to Speech (TTS)
       const audioResposta = await axios.post(
         "https://api.openai.com/v1/audio/speech",
         {
           model: "tts-1",
           input: respostaDoChat,
           voice: "alloy",
-          format: "mp3", // ou 'opus', 'aac', 'flac' conforme necessário
+          format: "mp3",
         },
         {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${apiKey}`,
           },
-          responseType: "arraybuffer", // Processar a resposta como um array de bytes
+          responseType: "arraybuffer",
         }
       );
 
-      console.log("Resposta da API de Áudio:", audioResposta);
-
+      // console.log("Resposta da API de Áudio:", audioResposta);
 
       if (audioResposta.headers["content-type"] === "audio/mpeg") {
-        // Crie um Blob a partir dos dados da resposta
         const blob = new Blob([audioResposta.data], { type: "audio/mpeg" });
-
-        // Crie uma URL a partir do Blob
         const audioUrl = URL.createObjectURL(blob);
-
-        // Salvando o URL do áudio
         setAudioUrl(audioUrl);
       } else {
         console.error(
@@ -247,7 +233,6 @@ export default function ChatbotModal() {
     setMenuVisible(false);
     setPergunta(e.target.value);
     setRespostaOption("");
-    console.log("Texto digitado:", e.target.value);
   };
 
   const [respostaOption, setRespostaOption] = useState("");
@@ -256,29 +241,31 @@ export default function ChatbotModal() {
       case 1:
         setRespostaOption(
           <>
-             • Projetos Recentes: Veja nossos projetos mais recentes e descubra o que estamos construindo atualmente.
+            <h3>
+              Olá!<br></br> Eu sou o CodeHelper, o seu assistente virtual
+              especializado em engenharia de software. Fui criado para ajudar
+              desenvolvedores como você a encontrar as melhores ferramentas para
+              cada etapa do seu projeto.
+            </h3>
           </>
-          
         );
         toggleMenuVisibility();
         break;
       case 2:
-          setRespostaOption(
-            <>
-              • Metodologia de Desenvolvimento: Conheça nossa abordagem para o desenvolvimento de software e como entregamos produtos de qualidade.
-            </>
-          );
-          toggleMenuVisibility();
-          break;
-        
+        setRespostaOption(
+          <>
+            • Metodologia de Desenvolvimento: Conheça nossa abordagem para o
+            desenvolvimento de software e como entregamos produtos de qualidade.
+          </>
+        );
         toggleMenuVisibility();
         break;
       case 3:
         setRespostaOption(
           <>
-            • Ferramentas Utilizadas: Descubra as tecnologias e ferramentas que empregamos para criar soluções inovadoras.
+            • Ferramentas Utilizadas: Descubra as tecnologias e ferramentas que
+            empregamos para criar soluções inovadoras.
           </>
-          
         );
         toggleMenuVisibility();
         break;
@@ -307,6 +294,34 @@ export default function ChatbotModal() {
     setMenuVisible(!menuVisible);
   };
 
+  useEffect(() => {
+    if (window.SpeechRecognition || window.webkitSpeechRecognition) {
+      recognition.current = new (window.SpeechRecognition ||
+        window.webkitSpeechRecognition)();
+      recognition.current.continuous = true;
+      recognition.current.lang = "pt-BR";
+
+      recognition.current.onresult = (event) => {
+        const text = event.results[event.results.length - 1][0].transcript;
+        setPergunta(text);
+      };
+
+      recognition.current.onend = () => {};
+
+      recognition.current.onerror = (event) => {
+        console.error("Voice recognition error:", event.error);
+      };
+    } else {
+      console.error("Speech recognition is not supported in this browser.");
+    }
+
+    return () => {
+      if (recognition.current) {
+        recognition.current.stop();
+      }
+    };
+  }, []);
+
   return (
     <div style={chatBotStyle}>
       <img
@@ -329,99 +344,110 @@ export default function ChatbotModal() {
         }}
       >
         <Box sx={modalStyle}>
-          <div>
-            <MenuIcon
-              onClick={toggleMenuVisibility}
-              style={{ cursor: "pointer" }}
-            />
-            {menuVisible && (
-              <div
-                style={{
-                  overflow: "hidden",
-                  backgroundColor: "#222",
-                  color: "#bababa",
-                  borderRadius: "4px",
-                  margin: "2px",
-                  padding: "2px",
-                }}
-              >
-                <ul
-                  style={{ listStyleType: "none", padding: "6px", margin: "0" }}
+        <div style={scrollableDivWithScrollbar}>
+            <div>
+              <MenuIcon
+                onClick={toggleMenuVisibility}
+                style={{ cursor: "pointer", fontSize: "20px" }}
+              />
+              {menuVisible && (
+                <div
+                  style={{
+                    overflow: "hidden",
+                    backgroundColor: "#222",
+                    color: "#bababa",
+                    borderRadius: "8px",
+                    margin: "8px",
+                    padding: "2px",
+                    border: "solid 1px black",
+                  }}
                 >
-                  {options.map((option) => (
-                    <li
-                      key={option.id}
-                      style={{
-                        ...liStyle,
-                        border:
-                          hoveredItem === option.id
-                            ? "1px solid #bababa"
-                            : liStyle.border,
-                      }}
-                      onMouseOver={() => handleMouseOver(option.id)}
-                      onMouseOut={handleMouseOut}
-                      onClick={() => handleOptionClick(option.id)}
-                    >
-                      {option.id} - {option.label}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
+                  <ul
+                    style={{
+                      listStyleType: "none",
+                      padding: "6px",
+                      margin: "0",
+                    }}
+                  >
+                    {options.map((option) => (
+                      <li
+                        key={option.id}
+                        style={{
+                          ...liStyle,
+                          border:
+                            hoveredItem === option.id
+                              ? "1px solid #bababa"
+                              : liStyle.border,
+                        }}
+                        onMouseOver={() => handleMouseOver(option.id)}
+                        onMouseOut={handleMouseOut}
+                        onClick={() => handleOptionClick(option.id)}
+                      >
+                        {option.id} - {option.label}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
 
-          <div
-            style={{
-              overflow: "hidden",
-              display: "flex",
-              alignItems: "center",
-              backgroundColor: "#343541",
-            }}
-          >
-            {respostaOption && (
-              <p
-                style={{
-                  color: "#bababa",
-                  display: pergunta ? "none" : "flex",
-                }}
-              >
-                {resposta ? "" : respostaOption}
-              </p>
-            )}
-            {resposta && (
-              <div>
+            <div
+              style={{
+                overflow: "hidden",
+                display: "flex",
+                alignItems: "center",
+                backgroundColor: "#343541",
+              }}
+            >
+              {respostaOption && (
                 <p
                   style={{
                     color: "#bababa",
-                    backgroundColor: "#1a1a1a",
-                    margin: "2px",
-                    padding: "2px",
-                    borderRadius: "2px",
+                    display: pergunta ? "none" : "flex",
                   }}
                 >
-                  {resposta}
-                  <button onClick={handlePlay}>
-                    <CampaignIcon></CampaignIcon>
-                  </button>
+                  {resposta ? "" : respostaOption}
                 </p>
-              </div>
-            )}
-          </div>
+              )}
+              {resposta && (
+                <div>
+                  <h3
+                    style={{
+                      color: "#bababa",
+                      backgroundColor: "#1a1a1a",
+                      margin: "8px",
+                      padding: "8px",
+                      borderRadius: "8px",
+                      borderRadius: "0 8px 8px 8px",
+                      border: "solid 1px black",
+                    }}
+                  >
+                    {/* <button onClick={handlePlay}>
+                    <CampaignIcon></CampaignIcon>
+                  </button> */}
+                    {resposta}
+                  </h3>
+                </div>
+              )}
+            </div>
 
-          <div
-            style={{
-              overflow: "hidden",
-              backgroundColor: "#292929",
-              color: "#bababa",
-              margin: "2px",
-              padding: "2px",
-              borderRadius: "4px",
-              display: pergunta ? "flex" : "none",
-            }}
-          >
-            <p style={{ color: "#bababa", padding: "10px" }}>{pergunta}</p>
+            <div
+              style={{
+                overflow: "hidden",
+                backgroundColor: "#292929",
+                color: "#bababa",
+                margin: "8px",
+                padding: "8px",
+                borderRadius: "8px 0 8px 8px",
+                border: "solid 1px #ccc",
+                display: pergunta ? "block" : "none",
+                wordWrap: "break-word",
+              }}
+            >
+              <h3>{pergunta}</h3>
+            </div>
           </div>
-
+          
           <div style={inputStyle}>
             <form
               onSubmit={handleSubmit}
@@ -429,32 +455,44 @@ export default function ChatbotModal() {
             >
               <textarea
                 rows="1"
-                cols="40"
-                placeholder="Digite a pergunta..."
+                placeholder="Faça sua pergunta aqui..."
                 value={pergunta}
                 onChange={handleOnChange}
                 onKeyPress={handleKeyPress}
                 style={{
                   backgroundColor: "transparent",
-                  flex: 1,
+                  flex: 2,
                   color: "#bababa",
-                  resize: "none",
                   border: "none",
+                  resize: "none",
+                  padding: "8px",
                   outline: "none",
                   overflow: "hidden",
+                  fontFamily: "Arial, sans-serif",
+                  fontSize: "1.25rem",
                 }}
                 ref={textAreaRef}
               ></textarea>
               <Button
                 type="submit"
                 disabled={loading}
-                style={{ color: "white" }}
+                style={{
+                  color: "white",
+                  padding: "6px",
+                  minWidth: "32px",
+                  height: "32px",
+                }}
               >
                 {loading ? <CircularProgress /> : <PlayArrowIcon />}
               </Button>
               <Button
                 type="button"
-                style={{ color: "white" }}
+                style={{
+                  color: "white",
+                  padding: "6px",
+                  minWidth: "32px",
+                  height: "32px",
+                }}
                 onMouseDown={startListening}
                 onMouseUp={stopListening}
               >

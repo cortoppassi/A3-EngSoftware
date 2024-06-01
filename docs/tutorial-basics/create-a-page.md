@@ -4,40 +4,33 @@ sidebar_position: 1
 
 # Criação da página
 
-Add **Markdown or React** files to `src/pages` to create a **standalone page**:
+**Configuração inicial**:
 
-- `src/pages/index.js` → `localhost:3000/`
-- `src/pages/foo.md` → `localhost:3000/foo`
-- `src/pages/foo/bar.js` → `localhost:3000/foo/bar`
+- A página foi criada usando o framework Next.js, que é uma estrutura React para desenvolvimento de aplicações web. Next.js oferece recursos como renderização do lado do servidor (SSR) e geração de sites estáticos (SSG), o que melhora o desempenho e a SEO da aplicação.
 
-## Create your first React Page
+## Instalação e Configuração do Material - UI
+Para a interface do usuário, foi utilizado o Material-UI, uma biblioteca de componentes React que implementa os princípios do Material Design do Google. A instalação e configuração foram realizadas através dos seguintes passos:
 
-Create a file at `src/pages/my-react-page.js`:
+**1. Instalação do Material-UI:** npm install @mui/material @emotion/react @emotion/styled
 
-```jsx title="src/pages/my-react-page.js"
-import React from 'react';
-import Layout from '@theme/Layout';
 
-export default function MyReactPage() {
-  return (
-    <Layout>
-      <h1>My React page</h1>
-      <p>This is a React page</p>
-    </Layout>
-  );
-}
-```
+**2. Configuração do tema:**
+Foi criado um tema personalizado usando o ThemeProvider do Material-UI para manter a consistência visual da aplicação.
 
-A new page is now available at [http://localhost:3000/my-react-page](http://localhost:3000/my-react-page).
+**3. Criação dos Cards:**
+Os componentes de Cards do Material-UI foram utilizados para exibir informações sobre os "dracossauros". Cada card contém detalhes relevantes e estilizados de acordo com o design do Material Design.
 
-## Create your first Markdown Page
+**4. Integração com a API da OpenAI:**
+Foi implementado um chatbot com integração à API da OpenAI para fornecer uma interface de interação conversacional. Isso permite que os usuários façam perguntas e recebam respostas geradas pelo modelo de linguagem da OpenAI.
 
-Create a file at `src/pages/my-markdown-page.md`:
+Para obtermos sucessos, devemos realizar alguns tipos de configurações, **configuração da api, configuração do cliente da Open Ai para depois a implementação do Chat Bot**.
 
-```mdx title="src/pages/my-markdown-page.md"
-# My Markdown page
+**5. Estruturação da Página:** A página principal foi estruturada para incluir uma seção de cards exibindo os dracossauros e uma seção de chatbot para interação com os usuários.
 
-This is a Markdown page
-```
+**6. Deploy da Aplicação:** Após a implementação e testes, a aplicação foi deployada utilizando plataformas como Vercel (que é recomendada para projetos Next.js) ou outra solução de hospedagem.
 
-A new page is now available at [http://localhost:3000/my-markdown-page](http://localhost:3000/my-markdown-page).
+**Em resumo**:
+
+Essa combinação de tecnologias resultou em uma aplicação web eficiente, visualmente agradável e interativa, oferecendo uma experiência completa para os usuários. A integração do chatbot adiciona uma camada adicional de interatividade, tornando a aplicação não apenas informativa, mas também envolvente.
+
+  

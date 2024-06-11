@@ -18,7 +18,7 @@ function HomepageHeader() {
       <div className="container">
         <div className="container">
           <Heading as="h1" className="hero__title">
-            Olá, bem-vindo
+            Olá, bem-vindo ao Dev-Hub
           </Heading>
           <p className="hero__subtitle">
             Plataforma de software para divulgar conhecimento e experiências em

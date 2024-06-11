@@ -136,7 +136,7 @@ export default function ChatbotModal() {
     e.preventDefault();
     setLoading(true);
 
-    const userPrompt = "Você vai responder de forma rapida clara e objetiva usando poucas palavras, assistente virtual especializado em engenharia de software, criado para ajudar desenvolvedores a encontrar as melhores ferramentas para cada etapa do seu projeto.";
+    const userPrompt = "Assistente virtual especializado em engenharia de software, criado para ajudar desenvolvedores a encontrar as melhores ferramentas para cada etapa do seu projeto.";
 
     if (!apiKey) {
       addMessage({ role: "bot", content: "Você não tem permissão" });
@@ -162,7 +162,7 @@ export default function ChatbotModal() {
             },
           ],
           temperature: 0.7,
-          max_tokens: 100,
+          max_tokens: 1000,
         },
         {
           headers: {

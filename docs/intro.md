@@ -4,25 +4,20 @@ sidebar_position: 1
 
 # Introdução
 
-**Plataforma de Gerenciamento e Apresentação de Principais Ferramentas de Engenharia de Software**.
+## Visão geral
 
-## Começando
+Este projeto visa criar uma plataforma dedicada ao Gerenciamento e Apresentação de ferramentas essenciais de Engenharia de Software. Nosso objetivo é proporcionar aos profissionais e estudantes da área de tecnologia uma plataforma abrangente e intuitiva. Esta plataforma simplificará significativamente o processo de escolha e utilização das melhores ferramentas disponíveis, adaptando-se precisamente às necessidades específicas de cada usuário.
 
-**Comece acessando o site.**  **[codehelper.dev](https://a-3-felipe.vercel.app/)**.
 
-### O que você precisará
+## Objetivo
 
-**1. Navegador Atualizado:**
-- Recomendamos o uso das versões mais recentes dos navegadores mais populares, como:
-  - Google Chrome
-  - Mozilla Firefox
-  - Microsoft Edge
-  - Safari
-- Certifique-se de que seu navegador está configurado para receber atualizações automáticas.
+Queremos centralizar e organizar recursos fundamentais para o desenvolvimento de software, direcionados para profissionais e estudantes da área de tecnologia. Essa plataforma oferece fácil acesso a uma variedade de ferramentas necessárias em todas as etapas do ciclo de vida do software, desde o planejamento até a manutenção.
 
-**2. Acesso à internet:**
-- Uma conexão estável à internet é essencial para garantir uma experiência sem interrupções.
-- Recomendamos uma conexão de banda larga com uma velocidade mínima de 10 Mbps para uso ideal da plataforma.
+Ao reunir essas ferramentas em um único local, a plataforma visa simplificar a busca e a seleção das melhores soluções para necessidades específicas. Cada ferramenta é apresentada, destacando suas funcionalidades, permitindo que os usuários façam escolhas informadas. Além disso, a plataforma facilita a integração entre diferentes ferramentas, quando necessário, promovendo fluxos de trabalho contínuos e eficientes. Manter os usuários atualizados sobre novas versões, atualizações de segurança e inovações no campo da engenharia de software também é uma prioridade, garantindo que eles estejam sempre informados e capacitados para adotar as melhores práticas e tecnologias.
+
+## Público Alvo
+
+Nosso público-alvo são profissionais e estudantes da área de tecnologia, abrangendo desenvolvedores de software, designers, gerentes de projeto, engenheiros de qualidade e todos os interessados em explorar e utilizar as mais eficazes ferramentas de software disponíveis no mercado.
 
 <!-- ## Generate a new site
 

@@ -4,85 +4,40 @@ sidebar_position: 2
 
 # Requisitos Não Funcionais
 
-Let's translate `docs/intro.md` to French.
+## Desempenho
 
-## Configure i18n
+    O sistema deve ser capaz de atender até 1000 usuários simultaneamente sem degradação perceptível no desempenho.
+    As respostas às solicitações do usuário devem ser retornadas em menos de 2 segundos.
 
-Modify `docusaurus.config.js` to add support for the `fr` locale:
+## Segurança
 
-```js title="docusaurus.config.js"
-export default {
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'fr'],
-  },
-};
-```
+    O sistema deve utilizar criptografia SSL para todas as comunicações.
+    O sistema deve armazenar senhas de forma criptografada.
+    O sistema deve implementar autenticação de dois fatores (2FA) para acesso de administradores.
 
-## Translate a doc
+## Usabilidade
 
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
+    A interface do usuário deve ser intuitiva e fácil de navegar.
+    O sistema deve ser acessível a partir de dispositivos móveis e desktops.
+    O sistema deve fornecer mensagens de erro e feedback claros para os usuários.
 
-```bash
-mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
+## Confiabilidade
 
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
-```
+    O sistema deve ter uma disponibilidade de 99,9%.
+    O sistema deve realizar backups diários dos dados.
+    O sistema deve ter mecanismos de recuperação de desastres para restaurar dados em caso de falha.
 
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
+## Escalabilidade
 
-## Start your localized site
+    O sistema deve ser escalável para acomodar um crescimento de usuários e dados sem reestruturação significativa.
+    O sistema deve ser capaz de adicionar novos serviços e funcionalidades com mínima interrupção aos usuários existentes.
 
-Start your site on the French locale:
+## Manutenibilidade
 
-```bash
-npm run start -- --locale fr
-```
+    O código do sistema deve ser bem documentado e seguir padrões de codificação estabelecidos.
+    O sistema deve ser modular para facilitar atualizações e manutenção.
 
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
+## Compatibilidade
 
-:::caution
-
-In development, you can only use one locale at a time.
-
-:::
-
-## Add a Locale Dropdown
-
-To navigate seamlessly across languages, add a locale dropdown.
-
-Modify the `docusaurus.config.js` file:
-
-```js title="docusaurus.config.js"
-export default {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: 'localeDropdown',
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
-```
-
-The locale dropdown now appears in your navbar:
-
-![Locale Dropdown](./img/localeDropdown.png)
-
-## Build your localized site
-
-Build your site for a specific locale:
-
-```bash
-npm run build -- --locale fr
-```
-
-Or build your site to include all the locales at once:
-
-```bash
-npm run build
-```
+    O sistema deve ser compatível com os principais navegadores web (Chrome, Firefox, Edge, Safari).
+    O sistema deve ser compatível com diferentes sistemas operacionais (Windows, macOS, Linux).

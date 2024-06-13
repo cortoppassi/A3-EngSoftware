@@ -4,52 +4,51 @@ sidebar_position: 3
 
 # Requisitos do Sistema
 
-Docusaurus can manage multiple versions of your docs.
+## Tecnologias Recomendadas
 
-## Create a docs version
 
-Release a version 1.0 of your project:
+    **1. Front end:**
 
-```bash
-npm run docusaurus docs:version 1.0
-```
+        **React.js** ou **Vue.js** para uma interface de usuário responsiva e dinâmica.
 
-The `docs` folder is copied into `versioned_docs/version-1.0` and `versions.json` is created.
+        **Tailwind CSS** para estilização moderna e eficiente.
 
-Your docs now have 2 versions:
+        **Next.js** ou **Nuxt.js** para renderização do lado do servidor e melhor desempenho.
 
-- `1.0` at `http://localhost:3000/docs/` for the version 1.0 docs
-- `current` at `http://localhost:3000/docs/next/` for the **upcoming, unreleased docs**
+    **2. Backend:**
 
-## Add a Version Dropdown
+        **Node.js** com **Express** ou **NestJS** para um servidor escalável e eficiente.
 
-To navigate seamlessly across versions, add a version dropdown.
+        **GraphQL** ou **RESTful API** para comunicação entre frontend e backend.
 
-Modify the `docusaurus.config.js` file:
+    **3. Banco de Dados:**
 
-```js title="docusaurus.config.js"
-export default {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: 'docsVersionDropdown',
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
-```
+        **PostgreSQL** para dados relacionais.
 
-The docs version dropdown appears in your navbar:
+        **MongoDB** ou **Elasticsearch** para busca e armazenamento de documentos.
 
-![Docs Version Dropdown](./img/docsVersionDropdown.png)
+    **4. Autenticação e Autorização:**
 
-## Update an existing version
+        **OAuth 2.0** e **JWT (JSON Web Tokens)** para autenticação segura.
 
-It is possible to edit versioned docs in their respective folder:
+    **5. Infraestrutura e DevOps:**
 
-- `versioned_docs/version-1.0/hello.md` updates `http://localhost:3000/docs/hello`
-- `docs/hello.md` updates `http://localhost:3000/docs/next/hello`
+        **Docker** e **Kubernetes** para contêinerização e orquestração.
+
+        **AWS, Azure**, ou **Google Cloud** para infraestrutura de nuvem.
+
+        **Jenkins, GitHub Actions,** ou **GitLab CI** para **CI/CD**.
+
+    **6. Monitoramento e Logging:**
+
+        **Prometheus** e **Grafana** para monitoramento.
+
+        **ELK Stack (Elasticsearch, Logstash, Kibana)** para logging e análise.
+
+    **7. Ferramentas de Colaboração:**
+
+        **Jira** para gestão de projetos e tarefas.
+
+        **Confluence** para documentação.
+
+        **Slack** ou **Microsoft Teams** para comunicação.

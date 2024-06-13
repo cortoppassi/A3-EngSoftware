@@ -4,52 +4,54 @@ sidebar_position: 1
 
 # Requisitos Funcionais
 
-Docusaurus can manage multiple versions of your docs.
+## Cadastro e Autenticação de Usuários
 
-## Create a docs version
+    O sistema deve permitir que os usuários se cadastrem com um endereço de e-mail válido e senha.
+    O sistema deve permitir que os usuários façam login utilizando e-mail e senha.
+    O sistema deve enviar um e-mail de confirmação para novos cadastros e permitir recuperação de senha.
 
-Release a version 1.0 of your project:
+## Gerenciamento de Perfis de Usuários
 
-```bash
-npm run docusaurus docs:version 1.0
-```
+    O sistema deve permitir que os usuários atualizem suas informações de perfil (nome, e-mail, foto de perfil).
+    O sistema deve permitir que os usuários visualizem seu histórico de atividades na plataforma.
 
-The `docs` folder is copied into `versioned_docs/version-1.0` and `versions.json` is created.
+## Pesquisa e Navegação de Ferramentas
 
-Your docs now have 2 versions:
+    O sistema deve permitir que os usuários pesquisem ferramentas por nome, categoria ou palavra-chave.
+    O sistema deve exibir uma lista de ferramentas filtrada com base nos critérios de pesquisa.
+    O sistema deve permitir que os usuários naveguem por categorias de ferramentas.
 
-- `1.0` at `http://localhost:3000/docs/` for the version 1.0 docs
-- `current` at `http://localhost:3000/docs/next/` for the **upcoming, unreleased docs**
+## Detalhes da Ferramenta
 
-## Add a Version Dropdown
+    O sistema deve exibir uma página de detalhes para cada ferramenta, incluindo descrição, funcionalidades, avaliações de usuários, e links para mais informações.
+    O sistema deve permitir que os usuários marquem ferramentas como favoritas para acesso rápido.
 
-To navigate seamlessly across versions, add a version dropdown.
+## Avaliação e Comentários de Ferramentas
 
-Modify the `docusaurus.config.js` file:
+    O sistema deve permitir que os usuários deixem avaliações e comentários para as ferramentas.
+    O sistema deve permitir que os usuários visualizem avaliações e comentários de outros usuários.
 
-```js title="docusaurus.config.js"
-export default {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: 'docsVersionDropdown',
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
-```
+## Recomendações de Ferramentas
 
-The docs version dropdown appears in your navbar:
+    O sistema deve recomendar ferramentas aos usuários com base em suas atividades e preferências.
+    O sistema deve permitir que os usuários filtrem recomendações por categorias.
 
-![Docs Version Dropdown](./img/docsVersionDropdown.png)
+## Gestão de Backlog e Sprints (Scrum)
 
-## Update an existing version
+    O sistema deve permitir a criação e gerenciamento de backlog do produto.
+    O sistema deve permitir a criação, visualização e gestão de sprints, incluindo definição de tarefas e acompanhamento de progresso.
 
-It is possible to edit versioned docs in their respective folder:
+## Relatórios e Análises
 
-- `versioned_docs/version-1.0/hello.md` updates `http://localhost:3000/docs/hello`
-- `docs/hello.md` updates `http://localhost:3000/docs/next/hello`
+    O sistema deve gerar relatórios de progresso dos sprints, incluindo burndown charts.
+    O sistema deve fornecer análises de uso das ferramentas e feedback dos usuários.
+
+## Integração com Outras Ferramentas
+
+    O sistema deve integrar-se com ferramentas de controle de versão (como GitHub, Bitbucket).
+    O sistema deve integrar-se com ferramentas de comunicação (como Slack).
+
+## Administração da Plataforma
+
+    O sistema deve permitir que administradores gerenciem usuários, categorias de ferramentas, e conteúdos da plataforma.
+    O sistema deve permitir que administradores visualizem estatísticas de uso e relatórios de sistema.

@@ -1,42 +1,15 @@
-# Website
+# Introdução
 
-This website is built using, a modern static website generator.
+### Visão Geral
 
-### Installation
+Este projeto, desenvolvido pelos alunos da UC Modelos, Métodos e Técnicas de Engenharia de Software, visa criar uma plataforma dedicada ao Gerenciamento e Apresentação de ferramentas essenciais de Engenharia de Software. Nosso objetivo é proporcionar aos profissionais e estudantes da área de tecnologia uma plataforma abrangente e intuitiva que simplifique significativamente o processo de escolha e utilização das melhores ferramentas disponíveis, adaptando-se precisamente às necessidades específicas de cada usuário.
 
-```
-$ yarn
-```
+### Objetivo
 
-### Local Development
-
-```
-$ yarn start
-```
+Queremos centralizar e organizar recursos fundamentais para o desenvolvimento de software, direcionados para profissionais e estudantes da área de tecnologia. Esta plataforma oferece fácil acesso a uma variedade de ferramentas necessárias em todas as etapas do ciclo de vida do software, desde o planejamento até a manutenção.
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-### Build
+### Público-Alvo
 
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
-# A---3-Felipe
+Nosso público-alvo são profissionais e estudantes da área de tecnologia, abrangendo desenvolvedores de software, designers, gerentes de projeto, engenheiros de qualidade e todos os interessados em explorar e utilizar as mais eficazes ferramentas de software disponíveis no mercado.

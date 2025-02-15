@@ -13,3 +13,8 @@ This command starts a local development server and opens up a browser window. Mo
 ### Público-Alvo
 
 Nosso público-alvo são profissionais e estudantes da área de tecnologia, abrangendo desenvolvedores de software, designers, gerentes de projeto, engenheiros de qualidade e todos os interessados em explorar e utilizar as mais eficazes ferramentas de software disponíveis no mercado.
+
+![Captura de tela 2025-02-15 203333](https://github.com/user-attachments/assets/673e9a0d-5c78-42bd-8eeb-c926d449c499)  
+  
+
+![Captura de tela 2025-02-15 203348](https://github.com/user-attachments/assets/519d401d-94e5-4671-b7a4-c9fd5dcdc288)
